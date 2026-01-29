@@ -21,8 +21,8 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   const obj = {
     ogDomain,
-    ogTitle: "Julehilsen fra Variant",
-    ogDescription: input || "Lag din egen julehilsen fra Variant!",
+    ogTitle: "Digital invitasjon fra Variant",
+    ogDescription: input || "Lag din egen digitale invitasjon fra Variant!",
     leadImageUrl,
     ogUrl,
   };

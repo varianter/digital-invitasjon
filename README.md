@@ -1,6 +1,6 @@
-# julehilsen
+# digital-invitasjon
 
-Julehilsen fra Variant
+Digital invitasjon fra Variant
 
 ## Test lokalt
 

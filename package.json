@@ -1,7 +1,7 @@
 {
-  "name": "julehilsen",
+  "name": "digital-invitasjon",
   "version": "1.0.0",
-  "description": "Variant holiday card",
+  "description": "Digital invitation from Variant",
   "license": "MIT",
   "private": true,
   "engines": {
