@@ -1,19 +1,19 @@
-import { NowRequest, NowResponse } from "@vercel/node";
-import { join } from "path";
-import { readFileSync } from "fs";
-import { decompressFromEncodedURIComponent } from "lz-string";
-import { parse } from "querystring";
+import { NowRequest, NowResponse } from '@vercel/node';
+import { join } from 'path';
+import { readFileSync } from 'fs';
+import { decompressFromEncodedURIComponent } from 'lz-string';
+import { parse } from 'querystring';
 
-const base = join(__dirname, "..", "_files");
-const template = readFileSync(join(base, "template.html"), "utf-8");
+const base = join(__dirname, '..', '_files');
+const template = readFileSync(join(base, 'template.html'), 'utf-8');
 
 export default async (req: NowRequest, res: NowResponse) => {
   const key = Object.keys(req.query)[0];
   const decompressedKey = decompressFromEncodedURIComponent(key);
   const keyDec = decompressedKey ? parse(decompressedKey) : {};
-  const input = keyDec["input-til"];
+  const input = keyDec['input-til'];
 
-  const proto = req.headers["x-forwarded-proto"] == "http" ? "http" : "https";
+  const proto = req.headers['x-forwarded-proto'] == 'http' ? 'http' : 'https';
   const ogDomain = `${proto}://${req.headers.host}`;
   const ogUrl = `${ogDomain}${req.url}`;
   const leadImageUrl = `${ogDomain}/assets/background.jpg`;
@@ -21,15 +21,15 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   const obj = {
     ogDomain,
-    ogTitle: "Digital invitasjon fra Variant",
-    ogDescription: input || "Lag din egen digitale invitasjon fra Variant!",
+    ogTitle: 'Digital invitasjon fra Variant',
+    ogDescription: input || 'Lag din egen digitale invitasjon fra Variant!',
     leadImageUrl,
-    ogUrl,
+    ogUrl
   };
   const data = template.replace(/\{\{(\w+)\}\}/gi, function (_, name) {
     return obj[name as keyof typeof obj] as string;
   });
 
-  res.setHeader("Content-type", "text/html");
+  res.setHeader('Content-type', 'text/html');
   res.status(200).send(data);
 };

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nb">
   <head>
     <meta charset="UTF-8" />
@@ -28,11 +28,19 @@
     <main>
       <article class="card">
         <div class="page">
-          <div class="page__first"></div>
+          <div class="page__first">
+            Hei,&nbsp;
+            <v-field title="Navn" class="name-field">Navn Navnesen</v-field>!
+          </div>
           <div class="page__second">
-            <v-field title="Til" class="fancy to">Til deg</v-field>
-            <v-field title="Hilsen">God jul!</v-field>
-            <v-field title="Fra" class="fancy from">Fra meg</v-field>
+            <a
+              href="https://www.variant.no/no/event/efc76509ba9b"
+              class="invitation-button"
+              target="_blank"
+              onclick="event.stopPropagation()"
+            >
+              Meld deg på
+            </a>
           </div>
         </div>
       </article>
@@ -42,25 +50,20 @@
     <script src="https://unpkg.com/lz-string@1.4.4/libs/lz-string.min.js"></script>
     <script src="src/var-injector.js"></script>
     <script>
-      const card = document.querySelector(".card");
+      const card = document.querySelector('.card');
 
-      card.addEventListener("click", () => {
-        if (card.classList.contains("card__open")) {
-          card.classList.remove("card__open");
+      card.addEventListener('click', () => {
+        if (card.classList.contains('card__open')) {
+          card.classList.remove('card__open');
         } else {
-          card.classList.add("card__open");
+          card.classList.add('card__open');
         }
-        card.classList.remove("card__sneakpeek");
+        card.classList.remove('card__sneakpeek');
       });
 
       setTimeout(() => {
-        card.classList.add("card__sneakpeek");
+        card.classList.add('card__sneakpeek');
       }, 500);
-
-      setTimeout(() => {
-        card.classList.add("card__open");
-        card.classList.remove("card__sneakpeek");
-      }, 3000);
     </script>
   </body>
 </html>

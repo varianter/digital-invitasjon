@@ -1,12 +1,12 @@
-@import url("https://styleguide.variant.no/_next/static/css/5feffe362c34ea575951.css");
+@import url('https://styleguide.variant.no/_next/static/css/5feffe362c34ea575951.css');
 
 @font-face {
-  font-family: "Britti";
+  font-family: 'Britti';
   src: url(/assets/britti.woff2);
 }
 
 * {
-  font-family: "Britti", sans-serif !important;
+  font-family: 'Britti', sans-serif !important;
 }
 
 :root {
@@ -26,9 +26,10 @@
 }
 
 html {
-  font-family: "Britti", sans-serif;
+  font-family: 'Britti', sans-serif;
   font-size: calc(
-    (var(--font-size-min) * 1px) + (var(--font-size-max) - var(--font-size-min)) *
+    (var(--font-size-min) * 1px) +
+      (var(--font-size-max) - var(--font-size-min)) *
       (
         (100vw - (var(--viewport-min) * 1px)) /
           (var(--viewport-max) - var(--viewport-min))
@@ -93,9 +94,20 @@ main {
   transition: all 1s 0.3s;
   transform-origin: 0 50%;
   z-index: 2;
+
+  display: flex;
+  align-items: flex-start;
+  padding-left: 33px;
+  padding-top: 41px;
+
+  font-family: 'Britti', sans-serif;
+  font-weight: 600;
+  font-size: 1.665625rem;
+  color: #cde5ff;
+  letter-spacing: -0.015em;
 }
 .page__first::after {
-  content: "";
+  content: '';
   background-image: url(../assets/inside-left.svg);
   position: absolute;
   padding: 2rem;
@@ -121,6 +133,36 @@ main {
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.invitation-button {
+  background-color: #88c1ff;
+  color: #000000;
+  border: none;
+  border-radius: 4.5px;
+  font-size: 2rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  width: 285px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.invitation-button:hover {
+  background-color: #6fb0ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.invitation-button:active {
+  transform: translateY(0);
 }
 
 .card__open .page__first {
@@ -132,7 +174,7 @@ main {
 }
 
 .card__sneakpeek .page__first {
-  transform: rotateY(-30deg);
+  transform: rotateY(-22deg);
 }
 
 .to {
