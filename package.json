@@ -4,12 +4,6 @@
   "description": "Digital invitation from Variant",
   "license": "MIT",
   "private": true,
-  "engines": {
-    "node": "22.x"
-  },
-  "scripts": {
-    "vercel-build": "yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 node_modules/canvas/build/Release/"
-  },
   "devDependencies": {
     "@types/lz-string": "^1.3.34",
     "@vercel/node": "^1.8.5"
