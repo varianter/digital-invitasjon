@@ -11,18 +11,19 @@ export default async (req: NowRequest, res: NowResponse) => {
   const key = Object.keys(req.query)[0];
   const decompressedKey = decompressFromEncodedURIComponent(key);
   const keyDec = decompressedKey ? parse(decompressedKey) : {};
-  const input = keyDec['input-til'];
+  const input = keyDec['input-navn'];
 
   const proto = req.headers['x-forwarded-proto'] == 'http' ? 'http' : 'https';
   const ogDomain = `${proto}://${req.headers.host}`;
   const ogUrl = `${ogDomain}${req.url}`;
-  const leadImageUrl = `${ogDomain}/assets/background.jpg`;
-  // const leadImageUrl = `${ogDomain}/api/preview${req.url}`;
+  const leadImageUrl = `${ogDomain}/assets/background.png`;
 
   const obj = {
     ogDomain,
     ogTitle: 'Digital invitasjon fra Variant',
-    ogDescription: input || 'Lag din egen digitale invitasjon fra Variant!',
+    ogDescription:
+      `Vi inviterer deg, ${input}!` ||
+      'Lag din egen digitale invitasjon fra Variant!',
     leadImageUrl,
     ogUrl
   };
